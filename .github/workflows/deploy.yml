@@ -1,0 +1,24 @@
+name: Deploy Knowledge Base
+
+on:
+  push:
+    branches: [ main ]  # Change to your desired branch(es) for triggering deployment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Or a specific runner OS
+
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from repository
+
+      - name: Set up Google Cloud authentication
+        uses: google-github-actions/setup-gcloud@v0  # Authenticate with Google Cloud
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2  # Install Terraform
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Apply Terraform configuration
+        run: terraform apply -auto-approve
