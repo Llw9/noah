@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <h1>Knowledge Base Q&A</h1>
+    <form method="POST">
+        <label for="question">Ask a question:</label>
+        <br>
+        <textarea id="question" name="question" rows="5" cols="30"></textarea>
+        <br>
+        <button type="submit">Ask</button>
+    </form>
+    <br>
+    <p>Answer: {{ answer }}</p>
+</body>
+</html>
